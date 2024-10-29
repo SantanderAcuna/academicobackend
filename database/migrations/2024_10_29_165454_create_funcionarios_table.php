@@ -11,10 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cursos', function (Blueprint $table) {
+        Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->integer('horas');
+            $table->bigInteger('cedula');
+            $table->string('nombre_completo');
+            $table->string('correo');
+            $table->string('telefono');
+            $table->string('responsable');
+            $table->string('lider_area')->default('No');
+            $table->string('area');
             $table->timestamps();
         });
     }
@@ -24,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cursos');
+        Schema::dropIfExists('funcionarios');
     }
 };
