@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\api\EstudianteController;
+use App\Http\Controllers\api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EstudianteController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,23 @@ use App\Http\Controllers\EstudianteController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
-Route::apiResource("estudiantes",EstudianteController::class);
+Route::post('register', [UserController::class, "register"]);
+Route::post('login', [UserController::class, "login"]);
+Route::apiResource("estudiantes", EstudianteController::class);
+
+
+Route::group([
+    'middleware' => ["auth:api"],
+], function () {
+
+    Route::get('profile', [UserController::class, "profile"]);
+    Route::get('logout', [UserController::class, "logout"]);
+    //Route::resource('permission', PermissionController::class);
+
+    
+});
