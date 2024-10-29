@@ -11,7 +11,7 @@ class Contribuyente extends Model
 
 
 
-    public $table = "contribuyente";
+    protected $table = 'contribuyentes';
 
     protected $fillable = ['id', 'cedula', 'nombre_completo', 'correo', 'Referencia'];
 

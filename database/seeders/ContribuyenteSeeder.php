@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contribuyente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class ContribuyenteSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Contribuyente::factory(50)->create();
     }
 }

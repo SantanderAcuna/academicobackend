@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('radicado');
             $table->string('tipo_solicitud');
             $table->date('fecha_asignacion');           
-            $table->string('funcionario_id');            
+            $table->unsignedBigInteger('funcionario_id');            
             $table->date('fecha_vencimiento');
             $table->foreign('funcionario_id')->references('id')->on('funcionarios')->onDelete('cascade');
             $table->timestamps();

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Funcionario;
+use App\Models\Peticion;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +16,18 @@ class PeticionFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    protected $model = Peticion::class;
+
+    public function definition()
     {
         return [
-            //
+            'radicado' => $this->faker->uuid(),
+            'tipo_solicitud' => $this->faker->randomElement(['Queja', 'Reclamo', 'Solicitud']),
+            'fecha_asignacion' => $this->faker->date(),
+            'funcionario_id' => Funcionario::factory(),
+            'fecha_vencimiento' => $this->faker->date('Y-m-d', '+1 month'),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

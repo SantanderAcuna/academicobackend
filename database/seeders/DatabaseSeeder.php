@@ -4,8 +4,11 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Contribuyente;
 use App\Models\Curso;
 use App\Models\Estudiante;
+use App\Models\Funcionario;
+use App\Models\Peticion;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -18,9 +21,10 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        Curso::factory(20)->create();
-        Estudiante::factory(20)->create();
-        user::factory(20)->create();
+        Contribuyente::factory(20)->create();
+        Peticion::factory(20)->create();
+        Funcionario::factory(20)->create();
+        User::factory(20)->create();
 
 
         User::factory()->create([

@@ -9,7 +9,7 @@ class Funcionario extends Model
 {
     use HasFactory;
 
-    public $table = "funcionario";
+    public $table = "funcionarios";
 
     protected $fillable = ['id', 'cedula', 'nombre_completo', 'correo', 'telefono','responsable','lider_area','area'];
    

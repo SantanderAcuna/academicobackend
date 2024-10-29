@@ -9,7 +9,7 @@ class Peticion extends Model
 {
     use HasFactory;
 
-    public $table = "funcionario";
+    public $table = "peticions";
 
     protected $fillable = ['id', 'radicado', 'tipo_solicitud', 'fecha_asignacion','fecha_vencimiento'];
    

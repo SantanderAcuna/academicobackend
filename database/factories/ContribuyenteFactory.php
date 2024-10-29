@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Contribuyente;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,17 @@ class ContribuyenteFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    protected $model = Contribuyente::class;
+
+    public function definition()
     {
         return [
-            //
+            'cedula' => $this->faker->unique()->numberBetween(10000000, 99999999),
+            'nombre_completo' => $this->faker->name(),
+            'correo' => $this->faker->unique()->safeEmail(),
+            'Referencia' => $this->faker->word(),
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

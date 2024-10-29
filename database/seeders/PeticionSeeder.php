@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Peticion;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,6 @@ class PeticionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Peticion::factory(30)->create();
     }
 }
